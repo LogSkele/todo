@@ -1,15 +1,5 @@
-def deleteline(something):
-  with open("todo.txt", "rt") as f:
-    output = []
-    for line in f:
-      if something != line.strip():
-        output.append(line)
-  with open("todo.txt", "wt") as f:
-    f.writelines(output)
-try:
-  f = open("todo.txt", "x")
-except:
-  pass
+try:f=open("todo.txt", "x")
+except:pass
 while True:
   with open("todo.txt", "rt") as f:
     print(f.read())
@@ -21,4 +11,9 @@ while True:
         f.write(f"\n{ee}")
     elif e=='2':
       eee=input('which todo> ')
-      deleteline(eee)
+      with open("todo.txt", "rt") as f:
+        output=[]
+        for line in f:
+          if eee != line.strip():
+            output.append(line)
+      with open("todo.txt", "wt") as f:f.writelines(output)
