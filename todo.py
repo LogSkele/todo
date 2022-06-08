@@ -12,8 +12,5 @@ while True:
     elif e=='2':
       eee=input('which todo> ')
       with open("todo.txt", "rt") as f:
-        output=[]
-        for line in f:
-          if eee != line.strip():
-            output.append(line)
+        output = [line for line in f if eee != line.strip()]
       with open("todo.txt", "wt") as f:f.writelines(output)
